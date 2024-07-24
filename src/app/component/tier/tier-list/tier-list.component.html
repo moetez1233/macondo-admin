@@ -1,0 +1,52 @@
+<div class="card" style="background-color: white">
+  <div class="card-body">
+    <div style="display: flex;justify-content: space-between;margin-bottom: 1%">
+      <h4 class="card-title">Liste des clients</h4>
+      <button
+        type="button"
+        class="btn btn-success" (click)="addTier()"
+      >
+        Ajouter un client
+      </button>
+    </div>
+    <h4 style="text-align: center" *ngIf="tierList.length===0">Merci d'ajouter un client </h4>
+    <div class="cardDetailFactureGroupe">
+    <table *ngIf="tierList.length!==0" class="table table-bordered table-hover">
+      <thead>
+      <tr class="tableBAckround">
+        <th class="text-dark font-medium fs-4">#</th>
+        <th class="text-dark font-medium fs-4">Nom</th>
+        <th class="text-dark font-medium fs-4">Prenom</th>
+        <th class="text-dark font-medium fs-4">Téléphone</th>
+        <th class="text-dark font-medium fs-4">Email</th>
+        <th class="text-dark font-medium fs-4">Adress</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="tableBAckround" *ngFor='let tr of tierList; index as i'>
+        <td>
+          {{ i + 1 }}
+        </td>
+        <td>
+          {{tr.nom}}
+        </td>
+        <td>
+          {{tr.prenom}}
+        </td>
+        <td>
+          {{tr.numeroTel}}
+        </td>
+        <td>
+          {{tr.email}}
+        </td>
+        <td>
+          {{tr.adress}}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    </div>
+
+  </div>
+</div>
+

@@ -1,0 +1,78 @@
+<div class="card" style="background-color: white">
+  <div class="card-body">
+    <div style="display: flex;justify-content: space-between;margin-bottom: 1%">
+      <h4 class="card-title" style="">Ajouter un nouveau produit</h4>
+     <div style="display: flex">
+       <button
+         type="button" style="border-radius: 50%;margin-right: 1%"
+         class="btn btn-secondary " (click)="returnToListProduit()"
+       >
+         <i class="bi bi-x-lg"></i>
+       </button>
+       <button style="border-radius: 50%"
+         type="button"
+         class="btn btn-success " (click)="saveProduit()"
+       >
+         <i class="bi bi-check"></i>
+       </button>
+     </div>
+
+    </div>
+    <div class="container">
+      <form [formGroup]="produitGroupe" >
+
+
+        <div class="row">
+          <div class="input-group input-group-sm col-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Code</span>
+            </div>
+            <input type="text" class="form-control" formControlName="code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm col-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm12">Libelle</span>
+            </div>
+            <input type="text" class="form-control" formControlName="libell" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm col-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm13">Prix vente</span>
+            </div>
+            <input type="number" class="form-control" formControlName="prixVente" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+        </div>
+        <div style="margin-top: 2%" class="row">
+          <div class="input-group input-group-sm col-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm131">Quantite initiale</span>
+            </div>
+            <input type="number" class="form-control" formControlName="quantiteInitiale" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm col-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm2">Quantite</span>
+            </div>
+            <input type="text" class="form-control" formControlName="quantite" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm col-sm">
+            <ng-select [items]="listDepot"
+                       [searchable]="true"
+                       bindLabel="code"
+                       formControlName="depot">
+            </ng-select>
+
+          </div>
+        </div>
+
+
+      </form>
+
+    </div>
+
+
+
+
+  </div>
+</div>
+

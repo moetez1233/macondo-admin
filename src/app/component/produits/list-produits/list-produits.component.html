@@ -1,0 +1,68 @@
+<div class="card" style="background-color: white">
+  <div class="card-body">
+    <div style="display: flex;justify-content: space-between;margin-bottom: 1%">
+      <h4 class="card-title">Liste des produit</h4>
+      <button
+        type="button"
+        class="btn btn-success" (click)="addProduit()"
+      >
+        Ajouter un produit
+      </button>
+    </div>
+    <h4 style="text-align: center" *ngIf="listProduit.length===0">Merci d'ajouter un produit </h4>
+    <div class="cardDetailFactureGroupe">
+    <table *ngIf="listProduit.length!==0" class="table table-bordered table-hover">
+      <thead>
+      <tr class="tableBAckround">
+        <th class="text-dark font-medium fs-3">#</th>
+        <th class="text-dark font-medium fs-3">Code</th>
+        <th class="text-dark font-medium fs-4">Libelle</th>
+        <th class="text-dark font-medium fs-3">PrixVente</th>
+        <th class="text-dark font-medium fs-3">Quantite initiale</th>
+        <th class="text-dark font-medium fs-3">Quantite Restante</th>
+        <th class="text-dark font-medium fs-3">Depot</th>
+        <th class="text-dark font-medium fs-3">Supprimer</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="tableBAckround" *ngFor='let tr of listProduit; index as i'>
+        <td>
+          {{ i + 1 }}
+        </td>
+        <td>
+          {{tr.code}}
+        </td>
+        <td>
+          {{tr.libell}}
+        </td>
+        <td>
+          {{tr.prixVente}}
+        </td>
+        <td>
+          {{tr.quantiteInitiale}}
+        </td>
+        <td>
+          {{tr.quantite}}
+        </td>
+        <td>
+          {{getDepotCode(tr.depot)}}
+        </td>
+        <td>
+          <div class="btnEdit">
+            <button title="Supprimer" (click)="deleteProduit(tr.id)"
+                    type="button" style="border-radius: 50%;margin-right: 1%"
+                    class="btn btn-danger "
+            >
+              <i class="bi bi-trash"></i>
+            </button>
+
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    </div>
+
+  </div>
+</div>
+

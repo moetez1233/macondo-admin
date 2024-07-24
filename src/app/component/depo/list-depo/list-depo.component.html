@@ -1,0 +1,43 @@
+<div class="card" style="background-color: white">
+  <div class="card-body">
+    <div style="display: flex;justify-content: space-between;margin-bottom: 1%">
+      <h4 class="card-title">Liste des depots</h4>
+      <button
+        type="button"
+        class="btn btn-success" (click)="addDepot()"
+      >
+        Ajouter un depot
+      </button>
+    </div>
+    <h4 style="text-align: center" *ngIf="listDepot.length===0">Merci d'ajouter un depot </h4>
+    <div class="cardDetailFactureGroupe">
+    <table *ngIf="listDepot.length!==0" class="table table-bordered table-hover"  >
+      <thead>
+      <tr class="tableBAckround">
+        <th style="background-color: white" class="text-dark font-medium fs-4">#</th>
+        <th class="text-dark font-medium fs-4">Code</th>
+        <th class="text-dark font-medium fs-4">Libelle</th>
+        <th class="text-dark font-medium fs-4">Ville</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr style="background-color: white" class="tableBAckround"  *ngFor='let tr of listDepot; index as i'>
+        <td>
+          {{ i + 1 }}
+        </td>
+        <td >
+          {{tr.code}}
+        </td>
+        <td>
+          {{tr.libelle}}
+        </td>
+        <td>
+          {{tr.ville}}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
