@@ -1,6 +1,8 @@
-import { Component, AfterViewInit, EventEmitter, Output } from '@angular/core';
+import {Component, AfterViewInit, EventEmitter, Output, OnInit} from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import {an} from "@fullcalendar/core/internal-common";
+import {Router} from "@angular/router";
 
 declare var $: any;
 
@@ -8,14 +10,14 @@ declare var $: any;
   selector: 'app-navigation',
   templateUrl: './navigation.component.html'
 })
-export class NavigationComponent implements AfterViewInit {
+export class NavigationComponent implements OnInit,AfterViewInit {
   @Output() toggleSidebar = new EventEmitter<void>();
-
+  userConnected:any
   public config: PerfectScrollbarConfigInterface = {};
 
   public showSearch = false;
 
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal,private router:Router) {
   }
 
   // This is for Notifications
@@ -111,5 +113,12 @@ export class NavigationComponent implements AfterViewInit {
     icon: 'de'
   }]
 
+ngOnInit() {
+    this.userConnected = sessionStorage.getItem('email') !== undefined ? sessionStorage.getItem('email'): 'Inconnue'
+}
+logOut(){
+    sessionStorage.clear();
+    this.router.navigateByUrl('/login')
+}
   ngAfterViewInit() { }
 }

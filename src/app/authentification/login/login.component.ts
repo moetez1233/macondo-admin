@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
         this.alertMessag.message = 'Connexion avec succes';
         this.showAlert = true
         sessionStorage.setItem("token",res.access_Token);
+        sessionStorage.setItem("email",data.email)
         this.route.navigateByUrl('/dashboard');
       }else{
         this.showAlert = true
